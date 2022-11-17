@@ -17,7 +17,17 @@ require_once("init.php");
     
     </style>
 </head>
-<body>
+<body> 
+    <div class="div_st" onclick="alert('click!')">
+    <ul>
+        <li>Try</li>
+        <li>To</li>
+        <li>Click!</li>
+    </ul>
+    </div>
+    <img src="space.jpg" width="500" height="600">
+    <h4>prepods!<select><option value="2">Гайструк Юрий Николаевич</option><option value="3">Плотникова Татьяна Ивановна</option><option value="1">Фёдорова Катерина Александровна</option></select>
+</h4></body>
     <h2>Get prepod</h2>
     <style>
     .div_st {
