@@ -17,15 +17,7 @@ require_once("init.php");
     
     </style>
 </head>
-<body style="
-    background: #75757d;
-">
-    <h2>Get prepod</h2>
-    <style>
-    .div_st {
-        background: #f5bbbf;
-    }
-    </style>
+<body> 
     <div class="div_st" onclick="alert('click!')">
     <ul>
         <li>Try</li>
