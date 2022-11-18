@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Prepods</title>
 
     <script src="js/jquery-3.6.0.js"></script>
     <style>
@@ -18,28 +18,40 @@ $(function(){
     $("#enter").click(function () { 
         $.ajax({
             type: "POST",
-            url: "insert_student.php",
+            url: "insert_prepod.php",
             data: {
                 fname: $("#fn").val(),
                 otch: $("#ot").val(),
                 lname: $("#ln").val(),
-                date_r: $("#dt").val(),
-                tel: $("#tl").val()
             },
             success: function (response) {
                 $("#out p").html(response);
             },
             error: function (response) {
-                alert("Ошибка!"+" " + response.status + " " + response.responseText);
+                alert("Ошибка!"+" " + response.status + " " + response.statusText);
             }
         });
     });
+function del_st(id) {
+    $.ajax({
+            type: "POST",
+            url: "insert_prepod.php",
+            data: {
+                id: id
+            },
+            success: function (response) {
+                alert("OK!")
+            },
+            error: function (response) {
+                alert("Ошибка!"+" " + response.status + " " + response.statusText);
+            }
+        });
+}
 });
 </script>
 
 </head>
 <body>
-
 <div>
     <h1>НЕ Форма ввода</h1>
         <label for="fname">First name:</label>
@@ -48,14 +60,10 @@ $(function(){
         <input id="ot" type="text" name="otch"><br><br>
         <label for="lname">Last name:</label>
         <input id="ln" type="text" name="lname"><br><br>
-        <label for="date_r">Date_r:</label>
-        <input id="dt" type="date" name="date_r"><br><br>
-        <label for="tel">Phone:</label>
-        <input id="tl" type="text" name="tel"><br><br>
         <button id="enter">Enter!</button>
 </div>
 <div id="out">
     <p></p>
-</div>
+</div> 
 </body>
 </html>
