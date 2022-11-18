@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +12,20 @@
 <div>
     <h1>Форма ввода</h1>
     <form action="/action_page.php">
-        <label for="fname">First name:</label>
-        <input type="text" id="fname" name="fname"><br><br>
-        <label for="lname">Last name:</label>
+    
+        <label for="lname">Фамилия:</label>
         <input type="text" id="lname" name="lname"><br><br>
+        <label for="fname">Имя:</label>
+        <input type="text" id="fname" name="fname"><br><br>
+        <label for="otch">Отчество:</label>
+        <input type="text" id="otch" name="otch"><br><br>
+        <label for="pass">Пароль:</label>
+        <input type="password" name="pass"><br><br>
+        <label for="date1">Дата рождения</label>
+        <input type="date" name="date1"><br><br>
+        <label for="tel">Телефон</label>
+        <input type="number" name="tel"><br><br>
+
         <input type="submit" value="Submit">
 </form>
 </div>
