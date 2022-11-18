@@ -7,8 +7,8 @@ $lname=$_GET["lname"];
 $date1=$_GET["date_r"];
 $tel=$_GET["tel"];
 
-$sql = "insert students(fam, name, otch, date_r, tel, city_id, group_id)
+$sql = "insert students(fam, name, otch, date_r, tel, city_id, group_id) 
         values('$lname', '$fname', '$otch', '$date_r', '$tel', 1, 1)";
-$result = mysqli_query($db_handler,$sql) or die ("Невозможно выполнить SQL запрос в 'get-student.php'!".mysqli_error($db_handler));
+$result = mysqli_query($db_handler,$sql) or die ("Невозможно выполнить SQL запрос!".mysqli_error($db_handler));
 echo "<h1>HELP</h1>"
 ?>
