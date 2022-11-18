@@ -11,8 +11,7 @@
 <body>
 <div>
     <h1>Форма ввода</h1>
-    <form action="/action_page.php">
-    
+    <form action="insert_student.php" method="GET"> 
         <label for="lname">Фамилия:</label>
         <input type="text" id="lname" name="lname"><br><br>
         <label for="fname">Имя:</label>
@@ -21,11 +20,10 @@
         <input type="text" id="otch" name="otch"><br><br>
         <label for="pass">Пароль:</label>
         <input type="password" name="pass"><br><br>
-        <label for="date1">Дата рождения</label>
-        <input type="date" name="date1"><br><br>
+        <label for="date_r">Дата рождения</label>
+        <input type="date" name="date_r"><br><br>
         <label for="tel">Телефон</label>
         <input type="number" name="tel"><br><br>
-
         <input type="submit" value="Submit">
 </form>
 </div>
