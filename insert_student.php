@@ -11,5 +11,4 @@ $sql = "insert students(fam, name, otch, date_r, tel, city_id, group_id)
         values('$lname', '$fname', '$otch', '$date_r', '$tel', 1, 1)";
 $result = mysqli_query($db_handler,$sql) or die ("Невозможно выполнить SQL запрос в 'get-student.php'!".mysqli_error($db_handler));
 echo "<h1>HELP</h1>"
-    
 ?>
