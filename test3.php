@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
- <div>
+<div>
     <h1>Форма ввода</h1>
     <form action="/action_page.php">
         <label for="fname">First name:</label>
@@ -16,6 +16,7 @@
         <input type="text" id="lname" name="lname"><br><br>
         <input type="submit" value="Submit">
 </form>
-    </div>
+</div>
+
 </body>
 </html>
