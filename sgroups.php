@@ -47,29 +47,8 @@ var cm = [
           name:'id', index:'id', hidden: true, editable:false, key:true
           },
           {
-          name:'day', index:'day', sortable:true, editable:true, editrules:{required:true}
+          name:'name', index:'name', sortable:true, editable:true, editrules:{required:true}
           },
-          {
-          name:'grp', index:'g.name', sortable:true, editable:false
-          },
-          {
-          name:'predmet', index:'pr.name', sortable:true, editable:true, edittype:"select", editoptions: {dataUrl:'get-predmet.php'}, editrules:{required:true}
-          },
-          {
-          name:'student', index:'concat(s.fam," ",s.name," ",s.otch)', sortable:true, editable:true, edittype:"select", editoptions: {dataUrl:'get-student.php'}, editrules:{required:true}
-          },
-          {
-          name:'city', index:'c.name', sortable:true, editable:false
-          },
-          {
-          name:'prepod', index:'concat(p.fam," ",p.name," ",p.otch)', sortable:true, editable:true, edittype:"select", editoptions: {dataUrl:'get-prepod.php'}, editrules:{required:true}
-          },
-          {
-          name:'present', index:'pres', sortable:true, editable:true, edittype:"select", editoptions: {value:"1:присутствовал;2:отсутствовал"}, editrules:{required:true}
-          },
-          {
-          name:'mark', index:'mark', sortable:true, editable:true, edittype:"select", editoptions: {value:"5:5;4:4;3:3;2:2"}
-          }
 ];
 
 
@@ -92,19 +71,19 @@ var prmSearch = {width: 700, recreateFilter: true, multipleSearch: false, multip
 
 
   $("#table_main").jqGrid({
-      url:'journal-load.php',
-      editurl:'journal-edit.php',
+      url:'sgroups-load.php',
+      editurl:'sgroups-edit.php',
       datatype: 'json',
       mtype: 'GET',
-      sortname: "day",
-      sortorder: "desc",
+      sortname: "name",
+      sortorder: "asc",
       height: window.innerHeight-135,
       width: window.innerWidth,
       autowidth: true,
       shrinkToFit: true,
       rowNum: 30,
       rowList: [30,50,100],
-      colNames:['Id','Дата','Группа','Предмет','Студент','Город','Преподаватель','Присутствие','Оценка'],
+      colNames:['Id', 'Наименование'],
       colModel: cm,
       //multiselect: true,
       viewrecords: true,
@@ -166,9 +145,6 @@ var prmSearch = {width: 700, recreateFilter: true, multipleSearch: false, multip
         </li>
         <li>
           <a href="sgroups.php">Редактирование групп</a>
-        </li>
-        <li>
-          <a href="students.php">Редактирование студентов</a>
         </li>
       </ul>
     </li>
