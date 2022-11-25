@@ -46,27 +46,27 @@ var cm = [
           {
           name:'id', index:'id', hidden: true, editable:false, key:true
           },
-           {
+          {
           name:'fam', index:'fam', sortable:true, editable:true, editrules:{required:true}
-          }, 
+          },
           {
           name:'name', index:'name', sortable:true, editable:true, editrules:{required:true}
           },
           {
           name:'otch', index:'otch', sortable:true, editable:true, editrules:{required:true}
-          }, 
+          },
           {
           name:'date_r', index:'date_r', sortable:true, editable:true, editrules:{required:true}
           },
           {
           name:'tel', index:'tel', sortable:true, editable:true, editrules:{required:true}
-          }, 
-          {
-          name:'city', index:'concat(.name," ",nsp)', sortable:true, editable:true, edittype:"select", editoptions: {dataUrl:'get-city.php'}, editrules:{required:true}
           },
           {
-          name:'group', index:'concat(.name)', sortable:true, editable:true, edittype:"select", editoptions: {dataUrl:'get-group.php'}, editrules:{required:true}
+            name:'city', index:'city.name', sortable:true, editable:true, edittype:"select", editoptions: {dataUrl:'get-city.php'}, editrules:{required:true}
           },
+          {
+          name:'sgroup', index:'sgroups.name', sortable:true, editable:true, edittype:"select", editoptions: {dataUrl:'get-sgroups.php'}, editrules:{required:true}
+          }
 ];
 
 
@@ -89,8 +89,8 @@ var prmSearch = {width: 700, recreateFilter: true, multipleSearch: false, multip
 
 
   $("#table_main").jqGrid({
-      url:'student-load.php',
-      editurl:'student-edit.php',
+      url:'students-load.php',
+      editurl:'students-edit.php',
       datatype: 'json',
       mtype: 'GET',
       sortname: "name",
@@ -101,7 +101,7 @@ var prmSearch = {width: 700, recreateFilter: true, multipleSearch: false, multip
       shrinkToFit: true,
       rowNum: 30,
       rowList: [30,50,100],
-      colNames:['Id', 'Фамилия','Имя','Отчество','Дата рождения','Телефон','Город','Группа'],
+      colNames:['Id', 'Фамилия', 'Имя', 'Отчество', 'Дата рождения', 'Телефон','Город','Группа'],
       colModel: cm,
       //multiselect: true,
       viewrecords: true,
@@ -156,16 +156,13 @@ var prmSearch = {width: 700, recreateFilter: true, multipleSearch: false, multip
           <a href="index.php">Журнал</a>
         </li>
         <li>
-          <a href="#">Студенты</a>
+          <a href="students.php">Студенты</a>
         </li>
         <li>
           <a href="city.php">Справочник Городов</a>
         </li>
         <li>
-          <a href="#">Редактирование групп</a>
-        </li>
-        <li>
-          <a href="students.php">Редактирование студентов</a>
+          <a href="sgroups.php">Редактирование групп</a>
         </li>
       </ul>
     </li>

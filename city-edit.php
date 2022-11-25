@@ -9,8 +9,7 @@ $nsp = $_REQUEST["nsp"];
 switch($_REQUEST["oper"]) {
 
  case "add":
-    $sql = "insert into city (name, nsp) values ('"
-            .$name."',".$nsp.")";
+    $sql = "insert into city (name, nsp) values ('$name','$nsp')";
     if(!mysqli_query($db_handler, $sql)) {
         header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
         header('Content-Type: text/html; charset=utf-8');
@@ -21,8 +20,8 @@ switch($_REQUEST["oper"]) {
  case "edit":
     $sql = "update city
             set 
-            name='".$name.
-            "',nsp=".$nsp.
+            name=".$name.
+            ",nsp=".$nsp.
             " where id=".$id;
     if(!mysqli_query($db_handler, $sql)) {
         header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);

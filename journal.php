@@ -159,16 +159,13 @@ var prmSearch = {width: 700, recreateFilter: true, multipleSearch: false, multip
           <a href="index.php">Журнал</a>
         </li>
         <li>
-          <a href="#">Студенты</a>
+          <a href="students.php">Студенты</a>
         </li>
         <li>
           <a href="city.php">Справочник Городов</a>
         </li>
         <li>
           <a href="sgroups.php">Редактирование групп</a>
-        </li>
-        <li>
-          <a href="students.php">Редактирование студентов</a>
         </li>
       </ul>
     </li>

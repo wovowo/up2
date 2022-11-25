@@ -51,16 +51,9 @@ if($totalrows) {
     $limit = $totalrows;
 
 }
-
-// $sql=  "SELECT COUNT(*) AS count 
-//         FROM students $where";
-// $result = mysqli_query($db_handler,$sql);
-// $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-// $count = $row['count'];
-
 $sql=  "SELECT COUNT(*) AS count 
-        FROM journal  j 
-        left join city c on s.city_id = c.id 
+        FROM students s
+        left join city c on s.city_id=c.id
         left join sgroups g on s.group_id = g.id $where";
 $result = mysqli_query($db_handler,$sql);
 $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -84,25 +77,21 @@ if ($limit < 0) $limit = 0;
 $start = $limit*$page - $limit;
 if ($start < 0) $start = 0;
 
-$sql = "SELECT  j.id, 
-                j.day, 
-                g.name as grp, 
-                pr.name as predmet, 
-                concat(s.fam, ' ', s.name, ' ', s.otch) as student, 
-                c.name as city, 
-                concat(p.fam, ' ', p.name, ' ', p.otch) as prepod, 
-                case when j.pres=1 then 'присутствовал' else 'отсутствовал' end as 'present', 
-                case when isnull(j.mark) then 'нет оценки' else j.mark end as 'mark'
-        FROM journal j 
-        left join students s on j.student_id = s.id
-        left join prepod p on j.prepod_id = p.id 
-        left join predmets pr on j.predmet_id = pr.id
+$sql = "SELECT  s.id, 
+                s.fam, 
+                s.name,
+                s.otch, 
+                s.date_r,
+                s.tel,
+                c.name as city,
+                g.name as sgroup
+        FROM students s
         left join city c on s.city_id = c.id 
         left join sgroups g on s.group_id = g.id $where ORDER BY $sidx $sord LIMIT $start , $limit";
 
 $result = mysqli_query($db_handler,$sql) or die ("Невозможно выполнить SQL запрос! ".mysqli_error($db_handler));
 
-$responce = new \stdClass();
+$responce = new stdClass();
 $responce -> page = $page;
 $responce -> total = $totalpages;
 $responce -> records = $count;
@@ -111,14 +100,13 @@ $i = 0;
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     $responce -> rows[$i]["id"] = $row["id"];
     $responce -> rows[$i]['cell'] = array(  $row["id"],
-                                            $row["day"],
-                                            $row["grp"],
-                                            $row["predmet"],
-                                            $row["student"],
+                                            $row["fam"],
+                                            $row["name"],
+                                            $row["otch"],
+                                            $row["date_r"],
+                                            $row["tel"],
                                             $row["city"],
-                                            $row["prepod"],
-                                            $row["present"],
-                                            $row["mark"]
+                                            $row["sgroup"]
                                         );
     $i++;
 }
